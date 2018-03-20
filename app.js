@@ -2,13 +2,17 @@ window.onload = function() {
   new Vue({
     el: "#app",
     data: {
-      name: "Puyan",
-      age: 21,
-      link: "https://i.chzbgr.com/full/9013910528/hAB49129F/"
+      counter: 0,
+      x: 0,
+      y: 0
     },
     methods: {
-      randomNumber: function() {
-        return Math.round(Math.random(2));
+      increase: function(increment, event) {
+        this.counter += increment;
+      },
+      updateLocation: function(event) {
+        this.x = event.clientX;
+        this.y = event.clientY;
       }
     }
   });
