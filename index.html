@@ -13,6 +13,7 @@
     <button @click="increase(2, $event)">Click Me</button>
     <p>{{ counter }}</p>
     <p v-on:mousemove="updateLocation">Location: {{ x }} / {{ y }}</p>
+    <span v-on:mousemove.stop="">DEAD SPOT</span>
   </div>
   <script src="app.js"></script>
 </body>
