@@ -2,17 +2,14 @@ window.onload = function() {
   new Vue({
     el: "#app",
     data: {
-      counter: 0,
-      x: 0,
-      y: 0
+      value: ""
     },
     methods: {
-      increase: function(increment, event) {
-        this.counter += increment;
+      alertMe: function() {
+        alert("Alert!");
       },
-      updateLocation: function(event) {
-        this.x = event.clientX;
-        this.y = event.clientY;
+      addValue: function() {
+        this.value = event.target.value;
       }
     }
   });
