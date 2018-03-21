@@ -1,10 +1,11 @@
 <script src="https://npmcdn.com/vue/dist/vue.js"></script>
 <link rel="stylesheet" href="css/styles.css">
 <div id="app">
-  <div class="demo" @click="makeRed = !makeRed" :class="{red: makeRed}"></div>
-  <div class="demo" @click="makeRed = !makeRed" :class="{red: makeRed}"></div>
-  <div class="demo" @click="makeRed = !makeRed" :class="{red: makeRed}"></div>
+  <div class="demo" :style="{backgroundColor: color}"></div>
+  <div class="demo" :style="myStyle"></div>
+  <hr>
+  <input type="text" v-model="color">
+  <input type="text" v-model="width">
 
-
-  <script src="app.js"></script>
+  <script src="app.js "></script>
 </div>
