@@ -2,15 +2,18 @@ window.onload = function() {
   new Vue({
     el: "#app",
     data: {
-      width: 100,
-      color: "gray"
+      effects: {
+        highlight: false,
+        shrink: true
+      }
     },
-    computed: {
-      myStyle: function() {
-        return {
-          backgroundColor: this.color,
-          width: this.width + "px"
-        };
+    methods: {
+      toggleEffect: function() {
+        var vm = this;
+        setInterval(function() {
+          vm.effects.highlight = !vm.effects.highlight;
+          vm.effects.shrink = !vm.effects.shrink;
+        }, 1000);
       }
     }
   });

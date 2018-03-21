@@ -1,11 +1,13 @@
 <script src="https://npmcdn.com/vue/dist/vue.js"></script>
-<link rel="stylesheet" href="css/styles.css">
-<div id="app">
-  <div class="demo" :style="{backgroundColor: color}"></div>
-  <div class="demo" :style="myStyle"></div>
-  <hr>
-  <input type="text" v-model="color">
-  <input type="text" v-model="width">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
 
-  <script src="app.js "></script>
+<div id="app">
+  <!-- 1) Start the Effect with the Button. The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick (attach respective class to the div with id "effect" below) -->
+  <div>
+    <button @click="toggleEffect">Start Effect</button>
+    <div id="effect" v-bind:class="effects"></div>
+  </div>
+
+  <script src="app.js">
+  </script>
 </div>
