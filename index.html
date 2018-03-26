@@ -1,10 +1,18 @@
-<script src="src/vue.js"></script>
+<script src="src/vue.js">
+</script>
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 
 <div id="app">
     <ul>
         <li v-for="(move, index) in moves">{{ move }} ({{ index }})</li>
     </ul>
+        <hr>
+            <ul>
+                <li v-for="fighter in fighters">
+                <div v-for="(value, key, index) in fighter">{{ value }}: {{ key }}, ({{ index }})</div>
+                </li>
+            </ul>
+        <hr>
     <template v-for="(move, index) in moves">
         <h1>{{ move }}</h1>
         <p>{{ index }}</p>
@@ -15,23 +23,25 @@
     new Vue({
         el: '#app',
         data: {
-            moves: ['fireball', 'uppercut', 'whirlwind-kick']
-        },
-        fighters: [{
-                name: 'Ryu',
-                age: 24,
-                country: 'Japan'
-            },
-            {
-                name: 'Chun-Li',
-                age: 21,
-                country: 'China'
-            },
-            {
-                name: 'Guile',
-                age: 28,
-                country: 'USA'
-            },
-        ]
-    });
+            moves: ['fireball', 'uppercut', 'whirlwind-kick'],
+
+            fighters: [{
+                    name: 'Ryu',
+                    age: 24,
+                    country: 'Japan'
+                },
+                {
+                    name: 'Chun-Li',
+                    age: 21,
+                    country: 'China'
+                },
+                {
+                    name: 'Guile',
+                    age: 28,
+                    country: 'USA'
+                },
+            ],
+        }
+    }
+);
 </script>
