@@ -1,23 +1,33 @@
-<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+<script src="src/vue.js"></script>
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 
 <div id="app">
-    <p v-if="show">You can see me!<span> Hello!</span></p>
-    <p v-else>Can you also see me?</p>
-
-    <template v-if="show">
-        <h1>Heading</h1>
-        <p>Inside a template</p>
-    </template>
-    <p v-show="show">Do you also see me</p>
-    <button @click="show = !show">PRESS ME</button>
+    <ul>
+        <li v-for="(move, index) in moves">{{ move }} ({{ index }})</li>
+    </ul>
 </div>
 
 <script type="text/javascript">
     new Vue({
         el: '#app',
         data: {
-            show: true,
+            moves: ['fireball', 'uppercut', 'whirlwind-kick']
         },
+        fighters: [{
+                name: 'Ryu',
+                age: 24,
+                country: 'Japan'
+            },
+            {
+                name: 'Chun-Li',
+                age: 21,
+                country: 'China'
+            },
+            {
+                name: 'Guile',
+                age: 28,
+                country: 'USA'
+            },
+        ]
     });
 </script>
