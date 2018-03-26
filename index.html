@@ -2,12 +2,16 @@
 <link rel="stylesheet" type="text/css" href="css/styles.css">
 
 <div id="app">
-  <!-- 1) Start the Effect with the Button. The Effect should alternate the "highlight" or "shrink" class on each new setInterval tick (attach respective class to the div with id "effect" below) -->
-  <div>
-    <button @click="toggleEffect">Start Effect</button>
-    <div id="effect" v-bind:class="effects"></div>
-  </div>
-
-  <script src="app.js">
-  </script>
+    <p v-if="show">You can see me!<span> Hello!</span></p>
+    <p v-else>Can you also see me?</p>
+    <button @click="show = !show">PRESS ME</button>
 </div>
+
+<script type="text/javascript">
+    new Vue({
+        el: '#app',
+        data: {
+            show: true,
+        },
+    });
+</script>
