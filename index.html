@@ -5,6 +5,10 @@
     <ul>
         <li v-for="(move, index) in moves">{{ move }} ({{ index }})</li>
     </ul>
+    <template v-for="(move, index) in moves">
+        <h1>{{ move }}</h1>
+        <p>{{ index }}</p>
+    </template>
 </div>
 
 <script type="text/javascript">
