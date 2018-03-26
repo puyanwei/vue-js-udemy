@@ -4,17 +4,17 @@
 
 <div id="app">
     <ul>
-        <li v-for="(move, index) in moves"  v-bind:key="move">{{ move }} ({{ index }})</li>
+        <li v-for="(move, index) in moves" v-bind:key="move">{{ move }} ({{ index }})</li>
     </ul>
-        <hr>
-            <ul>
-                <li v-for="fighter in fighters">
-                <div v-for="(value, key, index) in fighter">{{ value }}: {{ key }}, ({{ index }})</div>
-                </li>
-            </ul>
-            <span v-for="number in 10">{{ number }}</span>
-            <button @click="moves.push('spinning bird kick')">ADD MOVE</button>
-        <hr>
+    <hr>
+    <ul>
+        <li v-for="fighter in fighters">
+            <div v-for="(value, key, index) in fighter">{{ value }}: {{ key }}, ({{ index }})</div>
+        </li>
+    </ul>
+    <span v-for="number in 10">{{ number }}</span>
+    <button @click="moves.push('spinning bird kick')">ADD MOVE</button>
+    <hr>
     <template v-for="(move, index) in moves">
         <h1>{{ move }}</h1>
         <p>{{ index }}</p>
@@ -26,7 +26,6 @@
         el: '#app',
         data: {
             moves: ['fireball', 'uppercut', 'whirlwind-kick'],
-
             fighters: [{
                     name: 'Ryu',
                     age: 24,
@@ -44,6 +43,5 @@
                 },
             ],
         }
-    }
-);
+    });
 </script>
