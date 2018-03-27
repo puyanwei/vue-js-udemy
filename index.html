@@ -1,47 +1,55 @@
-<script src="src/vue.js">
+<script src="https://npmcdn.com/vue/dist/vue.js">
 </script>
-<link rel="stylesheet" type="text/css" href="css/styles.css">
 
 <div id="app">
-    <ul>
-        <li v-for="(move, index) in moves" v-bind:key="move">{{ move }} ({{ index }})</li>
-    </ul>
-    <hr>
-    <ul>
-        <li v-for="fighter in fighters">
-            <div v-for="(value, key, index) in fighter">{{ value }}: {{ key }}, ({{ index }})</div>
-        </li>
-    </ul>
-    <span v-for="number in 10">{{ number }}</span>
-    <button @click="moves.push('spinning bird kick')">ADD MOVE</button>
-    <hr>
-    <template v-for="(move, index) in moves">
-        <h1>{{ move }}</h1>
-        <p>{{ index }}</p>
-    </template>
+    <h1>{{ title }}</h1>
+    <button @click="show">Show Paragraph</button>
+    <p v-if="showParagraph">This is not always visible</p>
 </div>
 
-<script type="text/javascript">
-    new Vue({
+<div id="app2">
+    <h1>{{ title }}</h1>
+    <button @click="onChange">titleChange</button>
+</div>
+
+<script>
+    vm = new Vue({
         el: '#app',
         data: {
-            moves: ['fireball', 'uppercut', 'whirlwind-kick'],
-            fighters: [{
-                    name: 'Ryu',
-                    age: 24,
-                    country: 'Japan'
-                },
-                {
-                    name: 'Chun-Li',
-                    age: 21,
-                    country: 'China'
-                },
-                {
-                    name: 'Guile',
-                    age: 28,
-                    country: 'USA'
-                },
-            ],
+            title: 'This is the title in the Vue.js Instance section',
+            showParagraph: false,
+        },
+
+        methods: {
+            show: function() {
+                this.showParagraph = true
+                this.updateTitle('This is the title updated')
+            },
+            updateTitle: function(title) {
+                this.title = title
+            }
+        },
+        computed: {
+            lowercaseTitle: function() {
+                return this.title.toLowerCase()
+            }
+        },
+        watch: {
+            title: function(value) {
+                alert('Title changed, new value is: ' + value)
+            }
         }
     });
+
+    let vm2 = new Vue({
+        el: '#app2',
+        data: {
+            title: 'The Second Instance'
+        },
+        methods: {
+            onChange: function() {
+                vm.title = 'Title is Changed!'
+            }
+        }
+    })
 </script>

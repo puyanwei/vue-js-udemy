@@ -22,18 +22,18 @@
     <ul v-for="(value, key, i) in testData">
         <div v-if="key === 'data'">
           <ul v-for="index in value">
-            <li>{‌{index}}</li>
+            <li>{‌{ index }}</li>
           </ul>
         </div>
         <li v-else>
-          {‌{value}}
+          {‌{ value }}
         </li>
-      </ul>
+    </ul>
 </div>
 
 <script>
 new Vue({
-    el: '#exercise',
+    el: '#app',
     data: {
         show: true,
         array: ['Max', 'Anna', 'Chris', 'Manu'],
