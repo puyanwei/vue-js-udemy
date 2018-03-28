@@ -2,8 +2,8 @@
 </script>
 
 <div id="app">
-    <h1>{{ title }}</h1>
-    <button @click="show">Show Paragraph</button>
+    <h1 ref="heading">{{ title }}</h1>
+    <button @click="show" ref="myButton">Show Paragraph</button>
     <p v-if="showParagraph">This is not always visible</p>
 </div>
 
@@ -13,7 +13,7 @@
 </div>
 
 <script>
-    vm = new Vue({
+    let vm1 = new Vue({
         el: '#app',
         data: {
             title: 'This is the title in the Vue.js Instance section',
@@ -24,6 +24,7 @@
             show: function() {
                 this.showParagraph = true
                 this.updateTitle('This is the title updated')
+                this.$refs.myButton.innerText = "WOHOOOOO!"
             },
             updateTitle: function(title) {
                 this.title = title
@@ -40,6 +41,12 @@
             }
         }
     });
+
+    vm1.$refs.heading.innerText = "CHANGED TO SOMETHING ELSE"
+
+    setTimeout(() => {
+        vm1.title = "Changed by Timer"
+    }, 3000)
 
     let vm2 = new Vue({
         el: '#app2',
