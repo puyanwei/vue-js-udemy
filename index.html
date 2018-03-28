@@ -10,9 +10,18 @@
 <div id="app2">
     <h1>{{ title }}</h1>
     <button @click="onChange">titleChange</button>
+    <hello></hello>
+    <hello></hello>
+</div>
+
+<div id="app3">
 </div>
 
 <script>
+    Vue.component('hello', {
+        template: '<h1>Hello!</h1>'
+    })
+
     let vm1 = new Vue({
         el: '#app',
         data: {
@@ -43,10 +52,6 @@
     });
 
     vm1.$refs.heading.innerText = "CHANGED TO SOMETHING ELSE"
-
-    setTimeout(() => {
-        vm1.title = "Changed by Timer"
-    }, 3000)
 
     let vm2 = new Vue({
         el: '#app2',
